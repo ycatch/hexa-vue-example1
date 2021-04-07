@@ -47,7 +47,7 @@
               </template>
             </v-card-text>
             <v-card-actions>
-              <v-btn class="button-main" @click="login" :disabled="invalid">
+              <v-btn class="button-main" color="accent" @click="login" :disabled="invalid">
                 ログイン
               </v-btn>
             </v-card-actions>

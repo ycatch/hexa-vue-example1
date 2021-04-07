@@ -13,7 +13,9 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+            <!-- <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"> -->
+            <v-btn color="accent" dark class="mb-2" v-bind="attrs" v-on="on">
+            <!-- <v-btn dark class="mb-2" v-bind="attrs" v-on="on"> -->
               アイテム追加
             </v-btn>
           </template>
@@ -82,7 +84,8 @@
               <v-btn @click="close">
                 キャンセル
               </v-btn>
-              <v-btn color="primary" @click="save">
+              <v-btn color="accent" @click="save">
+              <!-- <v-btn @click="save"> -->
                 {{ saveButtonTitle }}
               </v-btn>
             </v-card-actions>
@@ -338,7 +341,7 @@ export default {
           "アイテム削除",
           "アイテムを削除しますか？",
           {
-            color: "light-blue accent-4",
+            color: "primary",
           }
         )
       ) {

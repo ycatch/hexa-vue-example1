@@ -22,6 +22,10 @@ export const OPTIONS = {
       name: "C",
       value: "categoryC",
     },
+    {
+        name: "Z",
+        value: "categoryZ",
+      },
   ],
 };
 
