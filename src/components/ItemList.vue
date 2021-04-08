@@ -278,6 +278,9 @@ export default {
         case "受付":
           color = "light-blue darken-1";
           break;
+        case "段取り":
+          color = "purple lighten-2";
+          break;
         case "作業中":
           color = "light-blue darken-4";
           break;

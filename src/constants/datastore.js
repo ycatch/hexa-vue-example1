@@ -46,6 +46,19 @@ export const STATUS_ACTIONS = {
       icon: "mdi-arrow-left-box",
     },
     {
+      id: "MoveToPlanning",
+      name: "段取りへ進める",
+      icon: "mdi-arrow-right-box",
+    },
+  ],
+  // prettier-ignore
+  "段取り": [
+    {
+      id: "BackToAssigned",
+      name: "受付へ戻す",
+      icon: "mdi-arrow-left-box",
+    },
+    {
       id: "MoveToInProgress",
       name: "作業中へ進める",
       icon: "mdi-arrow-right-box",
@@ -54,8 +67,8 @@ export const STATUS_ACTIONS = {
   // prettier-ignore
   "作業中": [
     {
-      id: "MoveToAssigned",
-      name: "受付へ戻す",
+      id: "MoveToPlanning",
+      name: "段取りへ戻す",
       icon: "mdi-arrow-left-box",
     },
     {
