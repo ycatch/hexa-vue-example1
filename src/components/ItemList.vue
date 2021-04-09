@@ -76,8 +76,13 @@
                 </v-row>
                 <v-row>
                   <v-col cols="12">
-                    <v-text-field v-model="editedWorkingTime" label="作業時間" />
+                    <v-text-field v-model="editedWorkingTime" label="作業時間_1" />
                   </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="12">
+                    <v-text-field v-model="editedWorkingTime2" label="作業時間_2" />
+                    </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -160,7 +165,8 @@ export default {
         { text: "カテゴリ", value: FIELDS.CATEGORY },
         { text: "ステータス", value: FIELDS.STATUS },
         { text: "期限", value: FIELDS.DUEDATE },
-        { text: "作業時間", value: FIELDS.WORKINGTIME },
+        { text: "作業時間_1", value: FIELDS.WORKINGTIME },
+        { text: "作業時間_2", value: FIELDS.WORKINGTIME2 },
         { text: "操作", value: "actions", sortable: false },
       ],
       applicationId: process.env.VUE_APP_APPLICATION_ID,
@@ -240,6 +246,17 @@ export default {
       },
       set(val) {
         this.$set(this.editedItem, FIELDS.WORKINGTIME, val);
+      },
+    },
+    editedWorkingTime2: {
+      get() {
+        if (!this.editedItem[FIELDS.WORKINGTIME2]) {
+          return "";
+        }
+        return this.editedItem[FIELDS.WORKINGTIME2];
+      },
+      set(val) {
+        this.$set(this.editedItem, FIELDS.WORKINGTIME2, parseInt(val)); 
       },
     },
   },
@@ -343,6 +360,7 @@ export default {
       editedItem[FIELDS.CATEGORY] = itemDetails[FIELDS.CATEGORY].value;
       editedItem[FIELDS.DUEDATE] = itemDetails[FIELDS.DUEDATE].value;
       editedItem[FIELDS.WORKINGTIME] = itemDetails[FIELDS.WORKINGTIME].value;
+      editedItem[FIELDS.WORKINGTIME2] = itemDetails[FIELDS.WORKINGTIME2].value;
 
       this.editedIndex = this.items.indexOf(item);
       this.editedItem = editedItem;
@@ -421,6 +439,7 @@ export default {
       item[FIELDS.ASSIGNEES] = this.editedItem[FIELDS.ASSIGNEES];
       item[FIELDS.CATEGORY] = this.editedItem[FIELDS.CATEGORY];
       item[FIELDS.WORKINGTIME] = this.editedItem[FIELDS.WORKINGTIME];
+      item[FIELDS.WORKINGTIME2] = this.editedItem[FIELDS.WORKINGTIME2];
 
       return item;
     },

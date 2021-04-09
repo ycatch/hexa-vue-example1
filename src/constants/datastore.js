@@ -6,6 +6,7 @@ export const FIELDS = {
   CATEGORY: "Category",
   STATUS: "Status",
   WORKINGTIME: "WorkingTime",
+  WORKINGTIME2: "WorkingTime2",
   DUEDATE: "DueDate",
 };
 
