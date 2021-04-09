@@ -13,9 +13,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on, attrs }">
-            <!-- <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"> -->
             <v-btn color="accent" dark class="mb-2" v-bind="attrs" v-on="on">
-            <!-- <v-btn dark class="mb-2" v-bind="attrs" v-on="on"> -->
               アイテム追加
             </v-btn>
           </template>
@@ -74,6 +72,11 @@
                         @input="datepickerMenu = false"
                       />
                     </v-menu>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field v-model="editedWorkingTime" label="作業時間" />
                   </v-col>
                 </v-row>
               </v-container>
@@ -157,6 +160,7 @@ export default {
         { text: "カテゴリ", value: FIELDS.CATEGORY },
         { text: "ステータス", value: FIELDS.STATUS },
         { text: "期限", value: FIELDS.DUEDATE },
+        { text: "作業時間", value: FIELDS.WORKINGTIME },
         { text: "操作", value: "actions", sortable: false },
       ],
       applicationId: process.env.VUE_APP_APPLICATION_ID,
@@ -225,6 +229,17 @@ export default {
       },
       set(val) {
         this.$set(this.editedItem, FIELDS.CATEGORY, val.value);
+      },
+    },
+    editedWorkingTime: {
+      get() {
+        if (!this.editedItem[FIELDS.WORKINGTIME]) {
+          return "";
+        }
+        return this.editedItem[FIELDS.WORKINGTIME];
+      },
+      set(val) {
+        this.$set(this.editedItem, FIELDS.WORKINGTIME, val);
       },
     },
   },
@@ -327,6 +342,7 @@ export default {
       editedItem[FIELDS.ASSIGNEES] = itemDetails[FIELDS.ASSIGNEES].value;
       editedItem[FIELDS.CATEGORY] = itemDetails[FIELDS.CATEGORY].value;
       editedItem[FIELDS.DUEDATE] = itemDetails[FIELDS.DUEDATE].value;
+      editedItem[FIELDS.WORKINGTIME] = itemDetails[FIELDS.WORKINGTIME].value;
 
       this.editedIndex = this.items.indexOf(item);
       this.editedItem = editedItem;
@@ -404,6 +420,7 @@ export default {
       item[FIELDS.TITLE] = this.editedItem[FIELDS.TITLE];
       item[FIELDS.ASSIGNEES] = this.editedItem[FIELDS.ASSIGNEES];
       item[FIELDS.CATEGORY] = this.editedItem[FIELDS.CATEGORY];
+      item[FIELDS.WORKINGTIME] = this.editedItem[FIELDS.WORKINGTIME];
 
       return item;
     },

@@ -5,6 +5,7 @@ export const FIELDS = {
   ASSIGNEES: "Assignee",
   CATEGORY: "Category",
   STATUS: "Status",
+  WORKINGTIME: "WorkingTime",
   DUEDATE: "DueDate",
 };
 
