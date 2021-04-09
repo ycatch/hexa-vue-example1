@@ -2,7 +2,7 @@ module.exports = {
   pages: {
     index: {
       entry: "src/main.js",
-      title: "hexa-vue-example1"
+      title: "Hexabase-ToDo-example"
     }
   },
   transpileDependencies: ["vuetify"],

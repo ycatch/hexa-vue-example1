@@ -23,6 +23,7 @@ export default new Vuetify({
             primary: colors.blueGrey,
             secondary: colors.grey,
             accent: colors.pink.accent2,
+            error: colors.pink.lighten2,
           },
         },
     },

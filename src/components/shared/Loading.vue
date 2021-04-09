@@ -1,8 +1,7 @@
 <template>
   <div v-show="loading">
     <v-overlay>
-      <v-progress-circular indeterminate color="accent" />
-      <!-- <v-progress-circular indeterminate /> -->
+      <v-progress-circular indeterminate />
     </v-overlay>
   </div>
 </template>
