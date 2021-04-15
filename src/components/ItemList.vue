@@ -3,6 +3,7 @@
     :headers="headers"
     :items="items"
     :loading="loading"
+    :search="search"
     :sort-by.sync="sortBy"
     loading-text="読込中... しばらくお待ち下さい"
     class="elevation-1"
@@ -10,7 +11,14 @@
     <template v-slot:top>
       <v-toolbar class="elevation-1">
         <v-toolbar-title>{{ title }}</v-toolbar-title>
-        <v-spacer></v-spacer>
+        <v-spacer />
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="検索"
+          sigle-line
+          hide-details
+        />
         <v-dialog v-model="dialog" max-width="600px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn color="accent" dark class="mb-2" v-bind="attrs" v-on="on">
@@ -21,7 +29,6 @@
             <v-card-title>
               <span>{{ formTitle }}</span>
             </v-card-title>
-
             <v-card-text>
               <v-container>
                 <v-row>
@@ -158,6 +165,7 @@ export default {
     return {
       title: DATASTORE_TITLE,
       loading: true,
+      search: '',
       sortBy: "",
       headers: [
         { text: "タイトル", value: FIELDS.TITLE },
