@@ -19,5 +19,5 @@ module.exports = {
   },
   outputDir: 'docs',
   assetsDir: './',
-  publicPath: './',
+  publicPath: '/hexa-vue-example1/',
 };
