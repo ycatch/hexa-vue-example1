@@ -16,5 +16,8 @@ module.exports = {
         logLevel: "debug",
       },
     },
-  }
+  },
+  outputDir: 'docs',
+  assetsDir: './',
+  publicPath: './',
 };
